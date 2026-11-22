@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Bebas_Neue } from "next/font/google";
 import { StoreProvider } from "@/lib/store";
+import BrandBackground from "@/components/BrandBackground";
 import "./globals.css";
 
 const body = Inter({ subsets: ["latin"], variable: "--font-body" });
@@ -15,8 +16,11 @@ export const viewport: Viewport = { themeColor: "#0A0A0A", width: "device-width"
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es-AR" className={`${body.variable} ${display.variable}`}>
-      <body className="bg-bg text-white antialiased">
-        <StoreProvider>{children}</StoreProvider>
+      <body className="bg-bg text-white antialiased relative min-h-screen">
+        <BrandBackground />
+        <StoreProvider>
+          <div className="relative z-10">{children}</div>
+        </StoreProvider>
       </body>
     </html>
   );

@@ -59,7 +59,7 @@ export default function Shop() {
   );
 
   return (
-    <div className="min-h-dvh bg-bg text-white pb-32">
+    <div className="min-h-dvh text-white pb-32">
       {/* Top Banner Operativo */}
       <div className="border-b border-line/60 bg-surface/90 text-xs text-muted backdrop-blur-sm">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-2 sm:px-6 lg:px-8">
