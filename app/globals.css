@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { background: #0A0A0A; color: #fff; -webkit-tap-highlight-color: transparent; }
+body { min-height: 100dvh; font-family: var(--font-body), system-ui, sans-serif; }
+::selection { background: #F5B800; color: #0A0A0A; }
+:focus-visible { outline: 2px solid #F5B800; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+/* Ticket térmico: se usa desde /admin con <div id="ticket-print"> */
+@media print {
+  body * { visibility: hidden; }
+  #ticket-print, #ticket-print * { visibility: visible; }
+  #ticket-print { position: absolute; inset: 0 auto auto 0; width: 80mm; color: #000; background: #fff; font: 12px/1.3 monospace; }
+  @page { margin: 2mm; }
+}
+
+@keyframes sheet { from { transform: translateY(28px); opacity: 0; } }
+@keyframes drawer { from { transform: translateX(100%); } }
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
