@@ -146,12 +146,12 @@ export default function BrandBackground() {
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 z-0 overflow-hidden select-none"
     >
-      {/* 1. Marca de Agua Central del Isotipo Oficial Chido's */}
+      {/* 1. Marca de Agua Central del Isotipo Oficial Chido's en Escala de Grises */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <img
           src="/chidos-logo-full.jpg"
           alt=""
-          className="w-[360px] sm:w-[520px] md:w-[680px] lg:w-[820px] max-w-none opacity-[0.14] md:opacity-[0.18] mix-blend-screen transform -rotate-2 scale-105"
+          className="w-[360px] sm:w-[520px] md:w-[680px] lg:w-[820px] max-w-none grayscale opacity-[0.08] md:opacity-[0.10] mix-blend-screen transform -rotate-2 scale-105"
         />
       </div>
 

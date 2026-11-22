@@ -53,8 +53,25 @@ export default function ProductModal({ product, addons, sauces = [], onClose, on
         
         {/* Header del producto con foto/emoji */}
         <div className="relative flex items-center gap-4 border-b border-line p-5">
-          <div className="grid h-20 w-20 shrink-0 place-items-center overflow-hidden rounded-2xl bg-surface2 text-5xl">
-            {product.image ? <img src={product.image} alt={product.name} className="h-full w-full object-cover" /> : product.emoji}
+          <div className="relative h-24 w-24 sm:h-28 sm:w-28 shrink-0 overflow-hidden rounded-2xl bg-[#141414] border border-line/60 shadow-inner">
+            {product.image ? (
+              <img
+                src={product.image}
+                alt={product.name}
+                style={{
+                  objectPosition: product.category === "bebidas" ? "center center" : "center 65%",
+                }}
+                className={`absolute inset-0 h-full w-full ${
+                  product.category === "bebidas"
+                    ? "object-contain p-2.5 bg-white/5"
+                    : "object-cover"
+                }`}
+              />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center text-4xl">
+                {product.emoji}
+              </div>
+            )}
           </div>
           <div className="min-w-0 flex-1 pr-6">
             <h2 className="font-display text-3xl sm:text-4xl leading-none">{product.name}</h2>

@@ -253,15 +253,28 @@ export default function Shop() {
                   className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-line bg-surface p-4 text-left transition-all duration-200 hover:border-gold/60 hover:bg-surface2/60 hover:shadow-xl hover:shadow-black/50 active:scale-[.99] ${p.paused ? "opacity-60 cursor-not-allowed" : "cursor-pointer"}`}>
                   
                   {/* Encabezado del producto: Foto/Emoji + Info */}
-                  <div className="flex gap-4">
-                    <div className="relative grid h-24 w-24 shrink-0 place-items-center overflow-hidden rounded-xl bg-surface2 text-5xl transition-transform duration-200 group-hover:scale-105">
+                  <div className="flex gap-4 items-start">
+                    <div className="relative h-24 w-24 sm:h-28 sm:w-28 shrink-0 overflow-hidden rounded-2xl bg-[#141414] transition-transform duration-200 group-hover:scale-105 border border-line/60 shadow-inner">
                       {p.image ? (
-                        <img src={p.image} alt={p.name} className="h-full w-full object-cover" />
+                        <img
+                          src={p.image}
+                          alt={p.name}
+                          style={{
+                            objectPosition: p.category === "bebidas" ? "center center" : "center 65%",
+                          }}
+                          className={`absolute inset-0 h-full w-full ${
+                            p.category === "bebidas"
+                              ? "object-contain p-2.5 bg-white/5"
+                              : "object-cover"
+                          }`}
+                        />
                       ) : (
-                        <span>{p.emoji}</span>
+                        <div className="flex h-full w-full items-center justify-center text-4xl">
+                          {p.emoji}
+                        </div>
                       )}
                       {p.paused && (
-                        <span className="absolute inset-x-0 bottom-0 bg-fire py-0.5 text-center text-[10px] font-bold text-white uppercase tracking-wider">
+                        <span className="absolute inset-x-0 bottom-0 z-10 bg-fire py-0.5 text-center text-[10px] font-bold text-white uppercase tracking-wider">
                           Sin stock
                         </span>
                       )}
